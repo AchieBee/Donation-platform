@@ -47,13 +47,13 @@ charity6 = Charity(name='Charity6', description='Description for Charity6', dona
 db.session.add(charity6)
 
 # Seed Admin
-admin1 = Admin(news_image='admin1.jpg', news_text='News for Admin1', charity=charity1)
+admin1 = Admin(news_title='World Charity Day',news_image='https://i.pinimg.com/564x/51/57/9a/51579ab90620cb36fb8592b19cd4280f.jpg', news_text='On 4 December 2023 ,there will be a world charity day which will take place at our headquarters on Ngongroad 1st lane. We  have games for children and adults that will make and gear the day towards a fruitful charity event.', charity=charity1)
 db.session.add(admin1)
 
-admin2 = Admin(news_image='admin1.jpg', news_text='News for Admin2', charity=charity2)
+admin2 = Admin(news_title='Climate Conservation',news_image='https://i.pinimg.com/564x/fc/c5/6f/fcc56fb069402b40a9bb680835da37b1.jpg', news_text='The climate conservation  day was a success and we were able to raise a substantial amount in order to achieve the intended goal for climate change awareness and to also organize for a community environment  cleanup . Thanks to all who participated.', charity=charity2)
 db.session.add(admin2)
 
-admin3 = Admin(news_image='admin3.jpg', news_text='News for Admin3', charity=charity3)
+admin3 = Admin(news_title='Water for all',news_image='https://i.pinimg.com/564x/57/5c/36/575c363b3d4fd67dea0547ce2cdcb1de.jpg', news_text='On 12th November our partners - Charity Ke were able to dig boreholes for communities in desert-prone areas, through the cause that was posted on our platform. We thank and highly appreciate everybody who participated in the execise and cause.Kudos!', charity=charity3)
 db.session.add(admin3)
 
 # Seed Beneficiary
@@ -65,6 +65,12 @@ db.session.add(beneficiary2)
 
 beneficiary3 = Beneficiary(name='Beneficiary3', image_url='https://i.pinimg.com/564x/7a/8b/0f/7a8b0fd9eba59136a6baa8c32ef62356.jpg', stories='Stories for Beneficiary3', charity=charity3)
 db.session.add(beneficiary3)
+
+#Seed Account
+account1 = Account(Paypal='example@gmail.com , +254702467546')
+account2 = Account(Bank='01594637281, charity')
+account3 = Account(Mpesa='564739, hope1')
+account4 = Account(Skrill='kenya, johndoe, +254789643790' )
 
 
 

@@ -49,6 +49,7 @@ class Charity(db.Model):
 class Admin(db.Model):
     __tablename__ = 'admins'
     id = db.Column(db.Integer, primary_key=True)
+    news_title = db.Column(db.String)
     news_image = db.Column(db.String)
     news_text = db.Column(db.String)
     created_at= db.Column(db.DateTime, default=datetime.utcnow)
