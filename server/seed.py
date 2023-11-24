@@ -66,6 +66,14 @@ with app.app_context():
     beneficiary3 = Beneficiary(name='Beneficiary3', image_url='https://i.pinimg.com/564x/7a/8b/0f/7a8b0fd9eba59136a6baa8c32ef62356.jpg', stories='Stories for Beneficiary3', charities3=charity3)
     db.session.add(beneficiary3)
 
+    #Seed Inventory
+    inventory1 = Inventory(item_name='hope1', amount='$20')
+    db.session.add(inventory1)
+    inventory2 = Inventory(item_name='hope2', amount='$65')
+    db.session.add(inventory2)
+    inventory3 = Inventory(item_name='hope3', amount='$40')
+    db.session.add(inventory3)
+
     #Seed Account
     account1 = Account(paypal='example@gmail.com+ \n 254772467546',bank='01531637281 \n charity',mpesa='561239 \n hope1',skrill='kenya \n johndoe \n +254789663790')
     db.session.add(account1)
