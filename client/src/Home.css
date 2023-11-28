@@ -1,0 +1,71 @@
+.donor{
+    display: flex;
+    flex-wrap: wrap;
+    
+}*{
+  margin: 3px;
+  /* background-color: cyan; */
+}
+.donori{
+  width: 390px;
+  height: 390px;
+  padding: 10px;
+  margin: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  border-radius: 1em;
+  
+}
+.cimg{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width:99%;
+    height: 60%;
+    border-radius: 1em;
+    overflow: hidden;
+
+}
+.cimg img{
+    max-width: 99%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 1em;
+}
+.cbody{
+  display: flex;
+}
+.charityi{
+  width: 390px;
+  height: 390px;
+  padding: 10px;
+  margin: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  border-radius: 1em;
+}
+.charitym{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  text-align: center;
+  
+    
+}*{
+  margin: 3px;
+  /* background-color: cyan; */
+}
+.formc{
+  width: 330px;
+  height: 390px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  border-radius: 1em;
+  overflow: auto;
+  position: fixed;
+  top: 2;
+  left: 70%;
+  
+  
+}
