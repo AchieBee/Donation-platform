@@ -14,18 +14,20 @@
   
   .footer_img {
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-top: 20px;
   }
   
   .footer_img img {
     max-width: 100%;
-    margin-right: 20px;
+    margin-bottom: 10px;
   }
   
   .footer_links {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 20px;
   }
   
@@ -43,6 +45,7 @@
   
   .btn_donation {
     margin-top: 20px;
+    text-align: center;
   }
   
   .btn_donation button {
@@ -55,6 +58,7 @@
   
   .socialmedia {
     display: flex;
+    justify-content: center;
     margin-top: 20px;
   }
   
@@ -66,5 +70,21 @@
   .footer p {
     text-align: center;
     margin-top: 20px;
+  }
+  
+  /* Media Query for Mobile Devices */
+  @media only screen and (max-width: 600px) {
+    .footer_img img {
+      width: 100%; /* Adjust image width to fit smaller screens */
+    }
+  
+    .footer_links {
+      text-align: center;
+    }
+  
+    .socialmedia {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   
