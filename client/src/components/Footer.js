@@ -16,9 +16,10 @@ const Footer = () => {
             </div>
             <div className='footer_img'>
                 <img src={images2} alt='a child picture'/>
-                <p><p>"Fostering hope for a brighter tomorrow, we dedicate ourselves to uplifting children through compassion and care.<br/> 
-                       Our mission is to create lasting impact by providing support, opportunities, and a nurturing environment.<br/> 
-                       Join us in making a difference in the lives of these young hearts, shaping a future filled with possibilities and joy."</p></p>
+                <p>Charity is a selfless act of giving, 
+                   driven by compassion and a desire to improve the well-being of
+                   others. It involves providing support, resources, or assistance to those 
+                   in need, fostering a sense of community and contributing to positive social impact</p>
             </div>
             <div className='footer_links'>
             <a href='About us'><p>About us</p>
