@@ -89,7 +89,12 @@
       align-items: center;
     }
   }
-  
+  .footer_img p {
+    width: 70%;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin-top: 10px;
+  }
   
   
   

@@ -4,6 +4,7 @@ import images11 from '../components/images/Peace be upon you - السلام عل
 import images12 from '../components/images/Worst Drought in 60 Years Brings Famine To Millions in Somalia, Kenya, and Ethiopia_ Aid is Blocked.jpeg'
 import images13 from '../components/images/KOMMAAR Photo.jpeg'
 import images14 from '../components/images/African Boy at Lake Victoria Entebbe Uganda.jpeg'
+import images15 from '../components/images/touchn2btouched.jpeg'
 import './News.css'
 import Footer from './Footer'
 
@@ -11,6 +12,9 @@ import Footer from './Footer'
 const News = () => {
   return (
     <div className='news_updates'>
+        <div className='pg_img'>
+            <img src={images15} alt='eyes'/>
+        </div>
         <div className='news_img'>
             <img src={images10} alt='hands of people'/>
             <h4>GIVING HOPE.</h4>
