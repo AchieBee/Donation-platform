@@ -1,0 +1,96 @@
+/* Footer.css */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .footer_section {
+    text-align: center;
+  }
+  
+  .footer_img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 200px;
+  }
+  
+  .footer_img img {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .footer_links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .footer_links a {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  
+  .mail,
+  .whatsapp {
+    width: 20px;
+    margin-right: 5px;
+  }
+  
+  .btn_donation {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .btn_donation button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .socialmedia {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .socialmedia img {
+    width: 30px;
+    margin-right: 10px;
+  }
+  
+  .footer p {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Media Query for Mobile Devices */
+  @media only screen and (max-width: 600px) {
+    .footer_img img {
+      width: 100%; 
+    }
+  
+    .footer_links {
+      text-align: center;
+    }
+  
+    .socialmedia {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  
+  
+  
+  
