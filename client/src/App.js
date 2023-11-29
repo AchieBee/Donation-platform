@@ -8,6 +8,7 @@ import Charityhomepage from "./components/Charityhomepage";
 import Aboutus from "./components/Aboutus";
 import Vision from "./components/Vision";
 import News from "./components/News";
+import Charitydetails from "./components/Charitydetails"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route exact path="/donorh" element={<Donorhomepage />} />
         <Route exact path="/charityh" element={<Charityhomepage />} />
+        <Route path="/donorh/:id" element={<Charitydetails />} /> 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/aboutus" element={<Aboutus />} />

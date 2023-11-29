@@ -59,7 +59,7 @@ function Charityhomepage({charity}) {
                         <div className="ptext">
                             <h2>{charity.name}</h2>
                             <p> {charity.description}</p>
-                            <h3>{charity.posted_at}</h3>
+                            <h5>{charity.posted_at}</h5>
                         </div>
                     </div>
                 ))}

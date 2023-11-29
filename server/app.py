@@ -67,9 +67,32 @@ class CharitiesResource(Resource):
         db.session.commit()
 
         return {'message': 'Data posted successfully'}
+class CharityDetailsResource(Resource):
+    def get(self, charity_id):
+        charity = Charity.query.get(charity_id)
+        
+        if charity:
+            
+            return jsonify({
+                "id": charity.id,
+                "name": charity.name,
+                "description": charity.description,
+                "donation_amount": charity.donation_amount,
+                "stories": charity.stories,
+                "image_url": charity.image_url,
+                "posted_at": charity.posted_at.isoformat(),
+                "paypal": charity.account.paypal if charity.account else None,
+                "bank": charity.account.bank if charity.account else None,
+                "mpesa": charity.account.mpesa if charity.account else None,
+                "skrill": charity.account.skrill if charity.account else None,
+                
+            })
+        else:
+            return jsonify({"error": "Charity not found"}), 404
 
 
 api.add_resource(DonorsResource,'/donorh')
+api.add_resource(CharityDetailsResource, '/donorh/<int:charity_id>')
 api.add_resource(CharitiesResource,'/charityh')
 
 
