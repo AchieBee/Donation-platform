@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import '../Home.css'
 
-
-
-
-
 function Donorhomepage({charity}){
     const [getdonor, setdonor] = useState([]);
-
+    const navigate = useNavigate();
+    
     useEffect(() => {
         fetch('http://127.0.0.1:5555/donorh')
             .then((response) => response.json())
@@ -21,8 +19,10 @@ function Donorhomepage({charity}){
                 }
             }, 2000);
     }, []);
-
-
+    const handleClick = (id) => {
+        navigate(`/donorh/${id}`);
+    };
+    
     return(
         <div>
          <Navbar />
@@ -35,9 +35,9 @@ function Donorhomepage({charity}){
                         <div className="ptext">
                             <h2>{charity.name}</h2>
                             <p> {charity.description}</p>
-                            <h3>{charity.posted_at}</h3>
+                            <h5>{charity.posted_at}</h5>
                         </div>
-                        <button>Donate</button>
+                        <button onClick={() => handleClick(charity.id)}>Donate</button>
                     </div>
                 ))}
             </div>

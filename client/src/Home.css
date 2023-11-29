@@ -82,3 +82,68 @@ label {
 h2 ,h3 {
   text-align: center;
 }
+.main2{
+  margin-bottom: 5%;
+  display: flex;
+
+}
+.page2{
+  
+  width: 60%;
+  border-radius: 1em;
+  margin-right: 4%;
+  margin-left: 2%;
+  
+}
+.imgd{
+  margin: auto;
+  display: block;
+  border-radius: 1em;
+}
+
+.text2{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  margin: 5%;
+  display: block;
+  border-radius: 1%;
+  min-height: 20%;
+  flex: 1;
+  margin-bottom: 5%;
+  
+
+}
+.collapsible-section {
+  width: 90%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin: 2%;
+  
+  
+
+}
+
+.collapsible-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+.collapsible-content {
+  padding: 10px;
+}
+.donate2{
+  position: fixed;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 30%;
+  border-radius: 2%;
+  left: 69%;
+  flex: 1;
+  min-height: 70%;
+  
+  
+}
