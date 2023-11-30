@@ -55,18 +55,15 @@
   /* background-color: cyan; */
 }
 .formc {
-  height: 430px;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 1em;
-  overflow: auto;
-  position: fixed;
-  top: 2;
   left: 69%;
   display: flex;
   flex-direction: column;
-  max-width: 449px;
-  margin: auto;
+  width: 190%;
+  height: 10%;
+  
 }
 
 input,
@@ -110,7 +107,6 @@ h2 ,h3 {
   min-height: 20%;
   flex: 1;
   margin-bottom: 5%;
-  
 
 }
 .collapsible-section {
@@ -119,7 +115,7 @@ h2 ,h3 {
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
-  margin: 2%;
+  margin: 3%;
   
   
 
@@ -137,13 +133,12 @@ h2 ,h3 {
   padding: 10px;
 }
 .donate2{
-  position: fixed;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   width: 30%;
   border-radius: 2%;
   left: 69%;
   flex: 1;
-  min-height: 70%;
+  
   
   
 }
