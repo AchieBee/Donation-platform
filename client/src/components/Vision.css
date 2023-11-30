@@ -1,0 +1,51 @@
+.container {
+    padding: 50px;
+    display: flex;
+}
+
+.container-1 {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: center;
+    float: left;
+}
+.div2{
+    display: flex;
+    margin-top: -30%;
+    margin-left: 22%;
+    height: 80%;
+}
+.navv{
+    background-image: url('../Assets/lneon.jpg');
+    width: 20%;
+    height: 400px;
+    margin-top: -2.5%;
+    border-radius: 10px;
+}
+
+.mission, .vission {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    height: 200px;
+    width: 39%;
+    float: left;
+    border-radius: 10px;
+}
+p {
+    font-size: 13px;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.img {
+    width: 90%;
+    height: 270px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    
+}
+.drop1 , .drop2{
+    width: 20%;
+    margin-top: -7%;
+
+}
