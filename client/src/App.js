@@ -9,6 +9,7 @@ import Aboutus from "./components/Aboutus";
 import Vision from "./components/Vision";
 import News from "./components/News";
 import Charitydetails from "./components/Charitydetails"
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/vision" element={<Vision />} />
         <Route path="/news" element={<News />} />
+        <Route path="/dashboard" element = {<Dashboard/>}/>
       </Routes>
     </>
   );
