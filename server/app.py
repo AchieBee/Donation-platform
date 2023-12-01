@@ -1,23 +1,78 @@
 from flask_cors import CORS
+from flask import request, render_template
 from flask import Flask, jsonify, request, session, make_response
 from flask_restful import Api, Resource, reqparse
-from models import User, Charity, Admin, Beneficiary, Inventory,Account, db
+from models import User, Charity, Admin, Beneficiary, Inventory, db
+from werkzeug.security import generate_password_hash, check_password_hash
+from marshmallow import Schema, fields, ValidationError, validates
 from flask_migrate import Migrate
 from datetime import datetime
 import os
+from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
-CORS(app)
-
-
-
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///charity.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key='qwwerrtyyu123'
+migrate = Migrate(app, db)
+
+bcrypt = Bcrypt(app)
 db.init_app(app)
 api = Api(app)
-migrate = Migrate(app, db)
+CORS(app)
+
+
+class SignUpResource(Resource):
+    def post(self):
+        data = request.json
+
+        # Validate required fields
+        required_fields = ['full_name', 'username', 'email', 'password', 'image_url', 'user_type']
+        for field in required_fields:
+            if field not in data:
+                return {'message': f'{field} is required'}, 400
+
+        # Check if the username or email is already taken
+        if User.query.filter((User.username == data['username']) | (User.email == data['email'])).first():
+            return {'message': 'Username or email already taken'}, 400
+
+        # Validate password length
+        if len(data['password']) < 6:
+            return {'message': 'Password must be at least 6 characters long'}, 400
+
+        hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+
+        new_user = User(
+            full_name=data['full_name'],
+            username=data['username'],
+            email=data['email'],
+            _password_hash=hashed_password,
+            image_url=data['image_url'],
+            user_type=data['user_type']
+        )
+
+        db.session.add(new_user)
+        db.session.commit()
+        return {'message': 'Signup successful'}, 200
+class LoginResource(Resource):
+    def post(self):
+        data = request.json
+
+        # Validate required fields
+        required_fields = ['email', 'user_type', 'password']
+        for field in required_fields:
+            if field not in data:
+                return {'message': f'{field} is required'}, 400
+
+        # Find the user by email and user type
+        user = User.query.filter_by(email=data['email'], user_type=data['user_type']).first()
+
+        if user and bcrypt.check_password_hash(user._password_hash, data['password']):
+            return {'message': 'Login successful'}, 200
+        else:
+            return {'message': 'Invalid email, user type, or password'}, 401
+
 
 
 class DonorsResource(Resource):
@@ -42,21 +97,15 @@ class CharitiesResource(Resource):
             stories=data.get('stories'),
             image_url=data.get('image_url'),
             posted_at=datetime.utcnow(),
-            user_id=data.get('user_id')
-        )
-        db.session.add(new_charity)
-        db.session.commit()
-
-        new_account = Account(
+            user_id=data.get('user_id'),
             paypal=data.get('paypal'),
             bank=data.get('bank'),
             mpesa=data.get('mpesa'),
             skrill=data.get('skrill'),
-            charity_id=new_charity.id
         )
-        db.session.add(new_account)
+        db.session.add(new_charity)
         db.session.commit()
-
+   
         new_beneficiary = Beneficiary(
             name=data.get('beneficiary_name'),
             image_url=data.get('beneficiary_image_url'),
@@ -81,16 +130,17 @@ class CharityDetailsResource(Resource):
                 "stories": charity.stories,
                 "image_url": charity.image_url,
                 "posted_at": charity.posted_at.isoformat(),
-                "paypal": charity.account.paypal if charity.account else None,
-                "bank": charity.account.bank if charity.account else None,
-                "mpesa": charity.account.mpesa if charity.account else None,
-                "skrill": charity.account.skrill if charity.account else None,
+                "paypal": charity.paypal,
+                "bank": charity.bank ,
+                "mpesa": charity.mpesa ,
+                "skrill": charity.skrill,
                 
             })
         else:
             return jsonify({"error": "Charity not found"}), 404
 
-
+api.add_resource(SignUpResource, '/signup')
+api.add_resource(LoginResource, '/login')
 api.add_resource(DonorsResource,'/donorh')
 api.add_resource(CharityDetailsResource, '/donorh/<int:charity_id>')
 api.add_resource(CharitiesResource,'/charityh')

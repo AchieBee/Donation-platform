@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_bcrypt import Bcrypt
 from sqlalchemy.ext.hybrid import hybrid_property
+from sqlalchemy.orm import validates
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
@@ -13,7 +14,8 @@ class User(db.Model):
     username = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False)
     image_url = db.Column(db.String, nullable=False)
-    password_hash = db.Column(db.String)
+    user_type = db.Column(db.String, nullable=False)
+    _password_hash = db.Column(db.String)
 
     #relationship
     charities = db.relationship('Charity', back_populates= 'users')
@@ -23,7 +25,7 @@ class User(db.Model):
         raise AttributeError('password hash may not be viewed')
 
     @password_hash.setter
-    def password_hash(self,password):
+    def password_hash(self, password):
         password_hash = bcrypt.generate_password_hash(password.encode('utf-8'))
         self._password_hash = password_hash.decode('utf-8')
 
@@ -54,13 +56,16 @@ class Charity(db.Model):
     image_url= db.Column(db.String)
     posted_at = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    paypal = db.Column(db.String)
+    bank = db.Column(db.String)
+    mpesa = db.Column(db.String)
+    skrill = db.Column(db.String)
     
 
     #relationship
     users = db.relationship('User', back_populates= 'charities')
     admin = db.relationship('Admin', back_populates= 'charities2')
     beneficiary = db.relationship('Beneficiary', back_populates= 'charities3')
-    account = db.relationship('Account', back_populates= 'charities5')
 
 
 
@@ -86,14 +91,3 @@ class Inventory(db.Model):
     #relationship
     beneficiaries2 = db.relationship('Beneficiary', back_populates= 'inventories')
 
-class Account(db.Model):
-    __tablename__ = 'accounts'
-    id = db.Column(db.Integer, primary_key=True)
-    paypal = db.Column(db.String)
-    bank = db.Column(db.String)
-    mpesa = db.Column(db.String)
-    skrill = db.Column(db.String)
-    charity_id = db.Column(db.ForeignKey('charities.id'))
-
-    #relationship
-    charities5 = db.relationship('Charity', back_populates= 'account')

@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import './App.css';
 import Login from "./components/Login";
-import Signup from "./components/Sighnup";
+import Signup from "./components/Signup";
 import Donorhomepage from "./components/Donorhomepage";
 import Charityhomepage from "./components/Charityhomepage";
 import Aboutus from "./components/Aboutus";

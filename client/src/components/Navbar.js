@@ -1,9 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React from 'react';
 import "../App.css";
 import logo from '../Assets/logo.png';
 
 function Navbar() {
+    const navigate = useNavigate();
+
+    const handleDonateClick = () => {
+        navigate('/login');
+    };
 
     return (
         <nav className="nav" >
@@ -19,7 +24,7 @@ function Navbar() {
                     <Link to="/pages">Pages</Link>
                 </div>
                 <div className="btn">
-                    <button>Donate</button>
+                    <button onClick={handleDonateClick}>Donate</button>
                 </div>
             </div>
         </nav>
