@@ -15,7 +15,7 @@ function App() {
     <>
       {/* <Navbar/> */}
       <Routes>
-        <Route exact path="/donorh" element={<Donorhomepage />} />
+        <Route exact path="/" element={<Donorhomepage />} />
         <Route exact path="/charityh" element={<Charityhomepage />} />
         <Route path="/donorh/:id" element={<Charitydetails />} /> 
         <Route path="/login" element={<Login />} />

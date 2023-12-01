@@ -1,0 +1,39 @@
+.side{
+    background-image: url('../Assets/lneon.jpg');
+    width: 20%;
+    height: 400px;
+    margin-top: -2.5%;
+    border-radius: 10px;
+}
+.vimg{
+    width: 90%;
+    height: 280px;
+    margin-left: 10%;
+    margin-top: -16%;
+    border-radius: 10px;
+    
+}
+.atext{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 60%;
+    padding: 2%;
+    border-radius: 10px;
+    height: 110px;
+    margin-left: 24%;
+    margin-top: -10%;
+}
+.patext{
+    font-size: larger;
+}
+.atext2{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    padding: 4%;
+    border-radius: 10px;
+    height: 390px;
+    margin-left: 2%;
+    
+}
+.patext2{
+    font-size: medium;
+}
