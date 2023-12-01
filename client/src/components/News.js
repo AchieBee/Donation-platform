@@ -17,14 +17,15 @@ function News(){
         <Navbar />
         <div>
             <div>
+                <h1 className='netitle'>News &Events</h1>
                 {getnews.map((news) => (
-                    <div key={news.id} className="nmain">
+                    <div key={news.id} className="nemain">
                         <div className="nimg">
-                            <img src={news.news_image} alt="news_img" />
+                            <img src={news.news_image} alt="nimg" className="nimg" />
                         </div>
                         <div className="ntxt">
                             <h2>{news.news_title}</h2>
-                            <p> {news.news_text}</p>
+                            <p2 className='netxt'> {news.news_text}</p2>
                             <h5>{news.posted_at}</h5>
                         </div>
                     </div>
