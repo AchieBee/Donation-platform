@@ -28,7 +28,7 @@ function Signup(){
                 console.log(data);
                 // Check for success and redirect
                 if (data.message === 'Signup successful') {
-                    window.location.href = '/login'; // Adjust the path as needed
+                    window.location.href = '/login'; 
                 }
             })
             .catch(error => console.error(error));
