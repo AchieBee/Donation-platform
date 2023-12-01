@@ -10,13 +10,7 @@ function News(){
     useEffect(() => {
         fetch('http://127.0.0.1:5555/news')
             .then((response) => response.json())
-            .then((data) => {
-                if (data && Array.isArray(data.admin)) {
-                    setnews(data.admin);
-                } else {
-                    console.error('Data is not in the expected format:', data);
-                }
-            }, 2000);
+            .then((data) => setnews(data.news));
     }, []);
   return (
     <div className='news'>

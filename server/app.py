@@ -141,20 +141,20 @@ class CharityDetailsResource(Resource):
 
 class NewsResource(Resource):
     def get(self):
-        news_list = Admin.query.all()
+        news = Admin.query.all()
         news_data = [
             {
-                'id': news.id,
-                'news_title': news.news_title,
-                'news_image': news.news_image,
-                'news_text': news.news_text,
-                'created_at': news.created_at,
-                'charity_id': news.charity_id
+                'id': item.id,
+                'news_title': item.news_title,
+                'news_image': item.news_image,
+                'news_text': item.news_text,
+                'created_at': item.created_at,
+                'charity_id': item.charity_id
             }
-            for news in news_list
+            for item in news
         ]
+        return jsonify(news=news_data)
 
-        return jsonify({'news': news_data})
 
 
 api.add_resource(SignUpResource, '/signup')
