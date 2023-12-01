@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: e3265512564d
+Revision ID: 31a0be186e17
 Revises: 
-Create Date: 2023-11-24 17:13:34.974441
+Create Date: 2023-12-01 08:41:31.183258
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'e3265512564d'
+revision = '31a0be186e17'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -24,6 +24,8 @@ def upgrade():
     sa.Column('username', sa.String(), nullable=False),
     sa.Column('email', sa.String(), nullable=False),
     sa.Column('image_url', sa.String(), nullable=False),
+    sa.Column('user_type', sa.String(), nullable=False),
+    sa.Column('_password_hash', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('charities',
@@ -35,17 +37,11 @@ def upgrade():
     sa.Column('image_url', sa.String(), nullable=True),
     sa.Column('posted_at', sa.DateTime(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_table('accounts',
-    sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('paypal', sa.String(), nullable=True),
     sa.Column('bank', sa.String(), nullable=True),
     sa.Column('mpesa', sa.String(), nullable=True),
     sa.Column('skrill', sa.String(), nullable=True),
-    sa.Column('charity_id', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['charity_id'], ['charities.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('admins',
@@ -83,7 +79,6 @@ def downgrade():
     op.drop_table('inventories')
     op.drop_table('beneficiaries')
     op.drop_table('admins')
-    op.drop_table('accounts')
     op.drop_table('charities')
     op.drop_table('users')
     # ### end Alembic commands ###
