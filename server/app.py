@@ -139,11 +139,30 @@ class CharityDetailsResource(Resource):
         else:
             return jsonify({"error": "Charity not found"}), 404
 
+class NewsResource(Resource):
+    def get(self):
+        news_list = Admin.query.all()
+        news_data = [
+            {
+                'id': news.id,
+                'news_title': news.news_title,
+                'news_image': news.news_image,
+                'news_text': news.news_text,
+                'created_at': news.created_at,
+                'charity_id': news.charity_id
+            }
+            for news in news_list
+        ]
+
+        return jsonify({'news': news_data})
+
+
 api.add_resource(SignUpResource, '/signup')
 api.add_resource(LoginResource, '/login')
 api.add_resource(DonorsResource,'/donorh')
 api.add_resource(CharityDetailsResource, '/donorh/<int:charity_id>')
 api.add_resource(CharitiesResource,'/charityh')
+api.add_resource(NewsResource, '/news')
 
 
 if __name__ == '__main__':

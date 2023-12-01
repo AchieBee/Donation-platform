@@ -1,6 +1,5 @@
 import React from 'react'
 import './Vision.css'
-
 import Navbar from './Navbar';
 import images from '../components/images/Death of an infant shows cruelty of starving in a country of food abundance.jpeg'
 import Footer from './Footer'
@@ -14,7 +13,6 @@ const Vision = () => {
     <>
         <Navbar />
         <div className='container-1'>
-            <h2></h2>
         <div className='navv'>
             ss
         </div>
@@ -29,13 +27,13 @@ const Vision = () => {
             <div className='vission'>
                 <img src={drop2} alt="drop2" className="drop2" />
                 <h2>Vision</h2>
-                <p>"In our vision, we see a world transformed by compassion, where every act of kindness ripples through communities,<br/> 
+                <p className='atext'>"In our vision, we see a world transformed by compassion, where every act of kindness ripples through communities,<br/> 
                     breaking barriers and creating a tapestry of shared humanity. It's a future where hope is abundant, opportunities <br/> 
                     are accessible to all, and the power of collective empathy shapes a world that nurtures the well-being and potential of every individual."</p>
             </div>
         </div>
         <div className='img'>
-                  <img src={images} alt="Image link" className='img' />
+                  <img src={images} alt="hope" className='img' />
         </div>
         </div>
         <Footer />
