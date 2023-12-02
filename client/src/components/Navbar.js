@@ -1,13 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
-import React from 'react';
+import React, { useState } from 'react';
 import "../App.css";
 import logo from '../Assets/logo.png';
 
 function Navbar() {
     const navigate = useNavigate();
+    const [authenticated, setAuthenticated] = useState(false);
 
     const handleDonateClick = () => {
-        navigate('/login');
+        if (authenticated) {
+            
+            navigate('/');
+        } else {
+            
+            navigate('/login');
+        }
     };
 
     return (

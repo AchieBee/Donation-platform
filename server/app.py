@@ -32,7 +32,7 @@ class SignUpResource(Resource):
         for field in required_fields:
             if field not in data:
                 return {'message': f'{field} is required'}, 400
-
+        session['user_id'] = new_user.id
         # Check if the username or email is already taken
         if User.query.filter((User.username == data['username']) | (User.email == data['email'])).first():
             return {'message': 'Username or email already taken'}, 400
@@ -40,6 +40,7 @@ class SignUpResource(Resource):
         # Validate password length
         if len(data['password']) < 6:
             return {'message': 'Password must be at least 6 characters long'}, 400
+        
 
         hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
 
@@ -69,11 +70,18 @@ class LoginResource(Resource):
         user = User.query.filter_by(email=data['email'], user_type=data['user_type']).first()
 
         if user and bcrypt.check_password_hash(user._password_hash, data['password']):
+            session['user_id'] = user.id
             return {'message': 'Login successful'}, 200
         else:
             return {'message': 'Invalid email, user type, or password'}, 401
 
-
+class SessionResource(Resource):
+    def get(self):
+        user_id = session.get('user_id')
+        if session.get('user_id'):
+            user = User.query.filter(User.id==session["user_id"]).first()
+            return user.to_dict(), 200
+        return {"error":"Resource not found"}
 
 class DonorsResource(Resource):
     def get(self):
