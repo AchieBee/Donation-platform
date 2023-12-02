@@ -30,9 +30,7 @@ const Footer = () => {
                 <div className='about'>
                     <a href='About us'><p>About us</p></a>
                 </div>
-                <div className='btn_donation'>
-                    <button type='Dontion'>Donate Now</button>
-                </div>
+               
                 <div className='socialmedia'>
                     <img src={images3} alt='twitter'/>
                     <img src= {images4} alt = 'instagram'/>

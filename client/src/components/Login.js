@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
-import './user.css'
+import { Link, useNavigate } from 'react-router-dom';
+import './user.css';
 
-function Login(){
+function Login() {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -25,6 +27,14 @@ function Login(){
 
             if (response.ok) {
                 console.log('Login successful');
+                
+                if (formData.user_type === 'Donor') {
+                    navigate('/'); 
+                } else if (formData.user_type === 'Charity') {
+                    navigate('/charityh');
+                } else {
+                    console.error('Invalid user type');
+                }
             } else {
                 console.error('Error logging in:', response.statusText);
             }
@@ -34,16 +44,15 @@ function Login(){
     };
 
     return (
-        
         <div className='login'>
             <h2>Login</h2>
-            <label >
+            <label>
                 Email:
-                <input type="email" name="email" onChange={handleInputChange}  />
+                <input type="email" name="email" onChange={handleInputChange} />
             </label>
-            <label >
+            <label>
                 Password:
-                <input type="password" name="password" onChange={handleInputChange}  />
+                <input type="password" name="password" onChange={handleInputChange} />
             </label>
             <label className='label'>
                 User Type:
@@ -61,3 +70,4 @@ function Login(){
 };
 
 export default Login;
+

@@ -6,7 +6,7 @@ function Signup(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [imageUrl, setImageUrl] = useState('');
-    const [userType, setUserType] = useState('');
+    const [userType, setUserType] = useState('Donor');
 
     const handleSignup = () => {
         fetch('http://127.0.0.1:5555/signup', {
