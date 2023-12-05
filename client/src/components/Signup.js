@@ -7,6 +7,7 @@ function Signup(){
     const [password, setPassword] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [userType, setUserType] = useState('Donor');
+    const [signupMessage, setSignupMessage] = useState('');
 
     const handleSignup = () => {
         fetch('http://127.0.0.1:5555/signup', {
@@ -26,9 +27,13 @@ function Signup(){
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                // Check for success and redirect
+                alert(data.message);
+                setSignupMessage(data.message);
+
                 if (data.message === 'Signup successful') {
-                    window.location.href = '/login'; 
+                    window.location.href = '/login';
+                } else if (data.message === 'Your request has been received and will be processed by the admins soon.') {
+                    window.location.href = '/';
                 }
             })
             .catch(error => console.error(error));
@@ -65,6 +70,7 @@ function Signup(){
                 </select>
             </label>
             <button onClick={handleSignup}>Sign Up</button>
+            {signupMessage && <p>{signupMessage}</p>}
         </div>
     );
 };

@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 31a0be186e17
+Revision ID: 0049e4a93ecd
 Revises: 
-Create Date: 2023-12-01 08:41:31.183258
+Create Date: 2023-12-05 18:43:48.746992
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '31a0be186e17'
+revision = '0049e4a93ecd'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -25,6 +25,7 @@ def upgrade():
     sa.Column('email', sa.String(), nullable=False),
     sa.Column('image_url', sa.String(), nullable=False),
     sa.Column('user_type', sa.String(), nullable=False),
+    sa.Column('approval_status', sa.String(length=50), nullable=True),
     sa.Column('_password_hash', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
@@ -46,13 +47,19 @@ def upgrade():
     )
     op.create_table('admins',
     sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('fullname', sa.String(length=80), nullable=False),
+    sa.Column('email', sa.String(length=120), nullable=False),
+    sa.Column('image_url', sa.String(), nullable=False),
+    sa.Column('_password_hash', sa.String(length=255), nullable=False),
     sa.Column('news_title', sa.String(), nullable=True),
     sa.Column('news_image', sa.String(), nullable=True),
     sa.Column('news_text', sa.String(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('charity_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['charity_id'], ['charities.id'], ),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('email'),
+    sa.UniqueConstraint('fullname')
     )
     op.create_table('beneficiaries',
     sa.Column('id', sa.Integer(), nullable=False),
