@@ -1,7 +1,66 @@
+.img_homepage{
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+.pic{
+  width: 100%;
+  height: 130vh;
+  border-radius: 0%;
+  opacity: 0.9;
+  transition: opacity 0.6s ease-in-out;
+}
+.pic:hover{
+  opacity: 1;
+}
+
+.btn_pic{
+  position: absolute;
+  top:  19%;
+  left: 15%;
+  width: 20%;
+  height: 60px;
+  background-color: orangered;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.btn_pic:hover{
+  background-color: blueviolet;
+}
+h1{
+  position: absolute;
+  color: white;
+  top: 12%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  left: 5%;
+  font-weight: 300;
+  font-size: 80px;
+  background-image: linear-gradient(blueviolet 0 0);
+  background-size: 200% .08em; /* .08em is our fixed height, use what you want  */
+  background-position: 200% 100%;
+  background-repeat: no-repeat;
+  transition: background-size .3s, background-position .3s .3s;
+}
+h1:hover{
+  transition: background-size .3s .3s, background-position .3s;
+  background-size: 200% 100%;
+  background-position: 100% 100%;
+}
+.parag{
+  position: absolute;
+  color: white;
+  top: 15%;
+  left: 60px;
+  font-size: x-large;
+  padding: 10px;
+}
 .donor{
     display: flex;
+    padding: 30px;
     flex-wrap: wrap;
-    
 }*{
   margin: 3px;
   /* background-color: cyan; */
@@ -9,20 +68,25 @@
 .donori{
   width: 390px;
   height: 390px;
-  padding: 10px;
-  margin: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin: 40px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   text-align: center;
-  border-radius: 1em;
-  
 }
 .cimg{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width:99%;
+    width:100%;
     height: 60%;
+    margin-top: 12px;
     border-radius: 1em;
     overflow: hidden;
+    transition: transform  1s ease;
 
+}
+.cimg:hover img{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  transition: 1s ease;
 }
 .cimg img{
     max-width: 99%;
@@ -76,13 +140,52 @@ textarea {
 label {
   margin-bottom: 8px;
 }
-h2 ,h3 {
-  text-align: center;
+h2{
+  padding: 5px;
+  margin-right: 70%;
+  font-weight: 500;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h5 {
+  padding: 1px;
+  margin: 2px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+}
+.pg{
+  margin-left: 20px;
+  font-size: medium;
+}
+.btn_donar{
+  background: #0c4eb0;
+  background-image: -webkit-linear-gradient(top, #0c4eb0, #2cb8a1);
+  background-image: -moz-linear-gradient(top, #0c4eb0, #2cb8a1);
+  background-image: -ms-linear-gradient(top, #0c4eb0, #2cb8a1);
+  background-image: -o-linear-gradient(top, #0c4eb0, #2cb8a1);
+  background-image: linear-gradient(to bottom, #0c4eb0, #2cb8a1);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  text-shadow: 0px 1px 3px #666666;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 4px 9px 5px 5px;
+  text-decoration: none;
+  margin-left: 60%;
+}
+.btn_donar:hover{
+  background: #583cfa;
+  background-image: -webkit-linear-gradient(top, #583cfa, #002d7a);
+  background-image: -moz-linear-gradient(top, #583cfa, #002d7a);
+  background-image: -ms-linear-gradient(top, #583cfa, #002d7a);
+  background-image: -o-linear-gradient(top, #583cfa, #002d7a);
+  background-image: linear-gradient(to bottom, #583cfa, #002d7a);
+  text-decoration: none;
 }
 .main2{
   margin-bottom: 5%;
   display: flex;
-
 }
 .page2{
   
@@ -116,9 +219,6 @@ h2 ,h3 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
   margin: 3%;
-  
-  
-
 }
 
 .collapsible-header {
@@ -138,7 +238,4 @@ h2 ,h3 {
   border-radius: 2%;
   left: 69%;
   flex: 1;
-  
-  
-  
 }
