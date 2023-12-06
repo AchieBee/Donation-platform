@@ -1,11 +1,15 @@
 import React from 'react'
 import './Vision.css'
 import Navbar from './Navbar';
-import images from '../components/images/Death of an infant shows cruelty of starving in a country of food abundance.jpeg'
+import images from '../components/images/Water.jpeg'
 import Footer from './Footer'
 import drop1 from '../Assets/vision.png';
 import drop2 from '../Assets/mission.png';
-
+import images33 from '../components/images/Gratitud Wine Design CF Napa Brand Design.jpeg'
+import images35 from '../components/images/Premium Vector Child care logo.jpeg'
+import images36 from '../components/images/Premium Vector People human together family unity logo icon illustration.jpeg'
+import images37 from '../components/images/You will get Make Excellent Eye Catching Custom T Shirt.jpeg'
+import images34 from '../components/images/A Modest Case for Civil Marriage Equality (Two Years Later).jpeg'
 
 
 const Vision = () => {
@@ -35,6 +39,19 @@ const Vision = () => {
         <div className='img'>
                   <img src={images} alt="hope" className='img' />
         </div>
+        <div>
+            <h3>Leadership</h3>
+           <hr className='horizontal-line' />
+           <div className='leader_logo'>
+            <img src={images33} alt='logo'/>
+            <img src={images35} alt='logo'/>
+            <img src={images36}  alt='logo' />
+            <img src={images37}  alt='logo' />
+            <img src={images34} alt='logo'/>
+
+           </div>
+        </div>
+       
         </div>
         <Footer />
     </>
