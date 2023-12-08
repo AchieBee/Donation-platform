@@ -11,10 +11,9 @@
   height: 390px;
   padding: 10px;
   margin: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 5);
   text-align: center;
   border-radius: 1em;
-  
 }
 .cimg{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

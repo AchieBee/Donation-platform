@@ -40,10 +40,7 @@ class Admin(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_url = db.Column(db.String, nullable=False)
     _password_hash = db.Column(db.String(255), nullable=False)
-    news_title = db.Column(db.String)
-    news_image = db.Column(db.String)
-    news_text = db.Column(db.String)
-    created_at= db.Column(db.DateTime, default=datetime.utcnow)
+
     charity_id = db.Column(db.Integer, db.ForeignKey('charities.id'))
     
 
@@ -62,7 +59,13 @@ class Admin(db.Model):
     def authenticate(self,password):
         return bcrypt.check_password_hash(self._password_hash,password.encode('utf-8'))
 
-
+class News(db.Model):
+    __tablename__ = 'news'
+    id = db.Column(db.Integer, primary_key=True)
+    news_title = db.Column(db.String)
+    news_image = db.Column(db.String)
+    news_text = db.Column(db.String)
+    created_at= db.Column(db.DateTime, default=datetime.utcnow)
 
 class Charity(db.Model):
     __tablename__ = 'charities'

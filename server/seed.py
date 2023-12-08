@@ -1,5 +1,5 @@
 from app import app, db
-from models import User, Charity, Admin, Beneficiary, Inventory
+from models import User, Charity, Admin, Beneficiary, Inventory,News
 from datetime import datetime
 
 with app.app_context():
@@ -48,15 +48,15 @@ with app.app_context():
     charity6 = Charity(name='Charity6', description='Description for Charity6', donation_amount=100,stories='Stories for Charity6', image_url='https://i.pinimg.com/564x/d6/7d/b3/d67db34c7eaa0a96008369c216aa94b3.jpg',  posted_at=datetime.utcnow(),users=user1,paypal='example3@gmail.com \n +254706767546',bank='01570937281 \n charity',mpesa='064439 \n hope5',skrill='kenya \n johndoe \n +254789678790')
     db.session.add(charity6)
     # Seed Admin
-    admin1 = Admin(fullname='Nic Exe', email='nic44@gmail.com' ,image_url='https://i.pinimg.com/564x/9a/e4/7f/9ae47f01dfed1a7ec357c555aeab916c.jpg',news_title='World Charity Day',news_image='https://i.pinimg.com/564x/51/57/9a/51579ab90620cb36fb8592b19cd4280f.jpg', news_text='On 4 December 2023 ,there will be a world charity day which will take place at our headquarters on Ngongroad 1st lane. We  have games for children and adults that will make and gear the day towards a fruitful charity event.' ,created_at=datetime.utcnow(),charities2=charity1)
+    admin1 = Admin(fullname='Nic Exe', email='nic44@gmail.com' ,image_url='https://i.pinimg.com/564x/9a/e4/7f/9ae47f01dfed1a7ec357c555aeab916c.jpg',charities2=charity1)
     admin1._password_hash='hashed_password'
     db.session.add(admin1)
 
-    admin2 = Admin(fullname='Belza Archie', email='belza44@gmail.com' ,image_url='https://i.pinimg.com/564x/50/2e/20/502e205580c40d854fcb6ec547c7dc14.jpg',news_title='Climate Conservation',news_image='https://i.pinimg.com/564x/fc/c5/6f/fcc56fb069402b40a9bb680835da37b1.jpg', news_text='The climate conservation  day was a success and we were able to raise a substantial amount in order to achieve the intended goal for climate change awareness and to also organize for a community environment  cleanup . Thanks to all who participated.' ,created_at=datetime.utcnow(),charities2=charity3)
+    admin2 = Admin(fullname='Belza Archie', email='belza44@gmail.com' ,image_url='https://i.pinimg.com/564x/50/2e/20/502e205580c40d854fcb6ec547c7dc14.jpg',charities2=charity3)
     admin2._password_hash='hashed_password'
     db.session.add(admin2)
 
-    admin3 = Admin(fullname='Toby Omondi', email='toby44@gmail.com' ,image_url='https://i.pinimg.com/564x/85/81/42/8581425e8ea241666d6583d1f327fdf8.jpg',news_title='Water for all',news_image='https://i.pinimg.com/564x/57/5c/36/575c363b3d4fd67dea0547ce2cdcb1de.jpg', news_text='On 12th November our partners - Charity Ke were able to dig boreholes for communities in desert-prone areas, through the cause that was posted on our platform. We thank and highly appreciate everybody who participated in the execise and cause.Kudos!' ,created_at=datetime.utcnow(),charities2=charity4)
+    admin3 = Admin(fullname='Toby Omondi', email='toby44@gmail.com' ,image_url='https://i.pinimg.com/564x/85/81/42/8581425e8ea241666d6583d1f327fdf8.jpg',charities2=charity4)
     admin3._password_hash='hashed_password'
     db.session.add(admin3)
 
@@ -77,6 +77,13 @@ with app.app_context():
     db.session.add(inventory2)
     inventory3 = Inventory(item_name='hope3', amount='$40')
     db.session.add(inventory3)
+    #Seed News
+    news1=News(news_title='World Charity Day',news_image='https://i.pinimg.com/564x/51/57/9a/51579ab90620cb36fb8592b19cd4280f.jpg', news_text='On 4 December 2023 ,there will be a world charity day which will take place at our headquarters on Ngongroad 1st lane. We  have games for children and adults that will make and gear the day towards a fruitful charity event.' ,created_at=datetime.utcnow())
+    db.session.add(news1)
+    news2=News(news_title='Climate Conservation',news_image='https://i.pinimg.com/564x/fc/c5/6f/fcc56fb069402b40a9bb680835da37b1.jpg', news_text='The climate conservation  day was a success and we were able to raise a substantial amount in order to achieve the intended goal for climate change awareness and to also organize for a community environment  cleanup . Thanks to all who participated.' ,created_at=datetime.utcnow())
+    db.session.add(news2)
+    news3=News(news_title='Water for all',news_image='https://i.pinimg.com/564x/57/5c/36/575c363b3d4fd67dea0547ce2cdcb1de.jpg', news_text='On 12th November our partners - Charity Ke were able to dig boreholes for communities in desert-prone areas, through the cause that was posted on our platform. We thank and highly appreciate everybody who participated in the execise and cause.Kudos!' ,created_at=datetime.utcnow())
+    db.session.add(news3)
 
     db.session.commit()
     print('Seeding done')

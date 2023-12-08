@@ -2,7 +2,7 @@ from flask_cors import CORS
 from flask import request, render_template
 from flask import Flask, jsonify, request, session, make_response
 from flask_restful import Api, Resource, reqparse
-from models import User, Charity, Admin, Beneficiary, Inventory, db
+from models import User, Charity, Admin, Beneficiary, Inventory, News, db
 from werkzeug.security import generate_password_hash, check_password_hash
 from marshmallow import Schema, fields, ValidationError, validates
 from flask_migrate import Migrate
@@ -90,7 +90,12 @@ class SessionResource(Resource):
             user = User.query.filter(User.id==session["user_id"]).first()
             return user.to_dict(), 200
         return {"error":"Resource not found"}
-
+    def get(self):
+        admin_id = session.get('admin_id')
+        if session.get('admin_id'):
+            admin = Admin.query.filter(Admin.id==session["admin_id"]).first()
+            return admin.to_dict(), 200
+        return {"error":"Resource not found"}
 class DonorsResource(Resource):
     def get(self):
         charities = Charity.query.all()
@@ -191,19 +196,72 @@ class CharityRequestsResource(Resource):
 
 class NewsResource(Resource):
     def get(self):
-        news = Admin.query.all()
+        news = News.query.all()
         news_data = [
             {
                 'id': item.id,
                 'news_title': item.news_title,
                 'news_image': item.news_image,
                 'news_text': item.news_text,
-                'created_at': item.created_at,
-                'charity_id': item.charity_id
+                'created_at': item.created_at
             }
             for item in news
         ]
         return jsonify(news=news_data)
+    
+    def post(self):
+        data = request.get_json()
+
+        new_news = News(
+            news_title = data.get('news_title'),
+            news_text = data.get('news_text'),
+            news_image = data.get('news_image'),
+        )
+        db.session.add(new_news)
+        db.session.commit()
+
+        return ({'message': 'News added successfully'}), 201
+    
+class AddAdminResource(Resource):
+    def post(self):
+        data = request.get_json()
+        
+        required_fields = ['fullname','email', 'password', 'image_url']
+        for field in required_fields:
+            if field not in data:
+                return {'message': f'{field} is required'}, 400
+        if Admin.query.filter((Admin.fullname == data['fullname']) | (Admin.email == data['email'])).first():
+            return {'message': 'Fullname or email already taken'}, 400
+        if len(data['password']) < 6:
+            return {'message': 'Password must be at least 6 characters long'}, 400
+        hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+        new_admin = Admin(
+            fullname=data['fullname'],
+            email=data['email'],
+           _password_hash=hashed_password,
+            image_url=data['image_url'],
+        )
+        db.session.add(new_admin)
+        db.session.commit()
+        return {'message': 'Data posted successfully'}
+    
+class adminLoginResource(Resource):
+    def post(self):
+        data = request.json
+        # Validate required fields
+        required_fields = ['email','password']
+        for field in required_fields:
+            if field not in data:
+                return {'message': f'{field} is required'}, 400
+        # Find the user by email and user type
+        admin = Admin.query.filter_by(email=data['email']).first()
+
+        if admin and bcrypt.check_password_hash(admin._password_hash, data['password']):
+            session['admin_id'] = admin.id
+            return {'message': 'Login successful'}, 200
+        else:
+            return {'message': 'Invalid email, user type, or password'}, 401
+         
 class ApprovalRequestsResource(Resource):
     def get(self):
         pending_requests = User.query.filter_by(approval_status='Pending').all()
@@ -254,7 +312,8 @@ api.add_resource(CharitiesResource,'/charityh')
 api.add_resource(CharityRequestsResource, '/charity-requests/<int:charity_id>')
 api.add_resource(NewsResource, '/news')
 api.add_resource(ApprovalRequestsResource, '/approval-requests/<int:user_id>/', '/approval-requests/', strict_slashes=False)
-
+api.add_resource(AddAdminResource, '/admin')
+api.add_resource(adminLoginResource, '/adminlogin')
 
 
 
