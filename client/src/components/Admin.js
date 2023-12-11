@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Line } from 'react-chartjs-2';
 import "./Admin.css";
 
 
@@ -9,7 +10,6 @@ function Admin() {
     const [formData, setFormData] = useState({ news_title: '', news_image: '', news_text: '' });
     const [formData2, setFormData2] = useState({ fullname: '', email: '', image_url: '', _password_hash: '' });
 
-
     useEffect(() => {
         fetchData(selectedSection);
     }, [selectedSection]);
@@ -17,6 +17,9 @@ function Admin() {
     const fetchData = (section) => {
         let apiUrl = '';
         switch (section) {
+            case 'dashboard':
+                apiUrl = 'http://127.0.0.1:5555/news';
+                break;
             case 'requests':
                 apiUrl = 'http://127.0.0.1:5555/approval-requests';
                 break;
@@ -39,12 +42,11 @@ function Admin() {
                             setApprovalRequests(data.requests);
                             break;
                         case 'news':
-                            // Handle data for the 'news' section if needed
                             break;
                         case 'admin':
-                            // Handle data for the 'admin' section if needed
                             break;
-                        // Add more cases for other sections as needed
+                        case 'dashboard':
+                            break;
                         default:
                             break;
                     }
@@ -149,7 +151,6 @@ function Admin() {
         <div className="admin-container">
             <div className="admin-sidebar">
                 <div className="admin-profile">
-                    {/* Profile picture and name */}
                     <img src="profile-picture.jpg" alt="Profile" />
                     <p className="admin-name">Admin</p>
                     <p className="admin-tag">Admin</p>
@@ -172,7 +173,27 @@ function Admin() {
                     <span className="account-icon">&#128100;</span>
                 </div>
                 <div className="admin-main3">
-                    {/* Content based on selected section */}
+                    {selectedSection === 'dashboard' && (
+                        <div className='dashboard'>
+                            <div className="dashboard-item">
+                                <h3>Total Requests</h3>
+                                <span className="icon">&#128276;</span>
+                                <p>{approvalRequests.length}</p>
+                            </div>
+                            <div className="dashboard-item">
+                                <h3>Today's Requests</h3>
+                                <span className="icon">&#128276;</span>
+                                <p>{approvalRequests.length}</p>
+                            </div>
+                            <div className="dashboard-item">
+                                <h3>Request Projection</h3> 
+                            </div>
+                            <div className="dashboard-item">
+                                <h3>Updates</h3>
+                                <p>Your update content goes here.</p>
+                            </div>
+                        </div>
+                    )}
                     {selectedSection === 'requests' && (
                         <div className="admin-requests">
                             {approvalRequests.length > 0 && (
