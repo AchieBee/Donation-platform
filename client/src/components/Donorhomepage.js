@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import '../Home.css'
+import images30 from '../Assets/Child labour - Child Labour in India(4).jpeg'
 
-function Donorhomepage({charity}){
+
+function Donorhomepage({ charity }) {
     const [getdonor, setdonor] = useState([]);
     const navigate = useNavigate();
-    
+
     useEffect(() => {
         fetch('http://127.0.0.1:5555/donorh')
             .then((response) => response.json())
@@ -22,10 +24,14 @@ function Donorhomepage({charity}){
     const handleClick = (id) => {
         navigate(`/donorh/${id}`);
     };
-    
-    return(
-        <div>
-         <Navbar />
+
+    return (
+        <div className='img_homepage'>
+            <Navbar />
+            <img className='pic' src={images30} alt='child' />
+            <button className='btn_pic' onClick={() => handleClick(charity.id)}>Donate</button>
+            <h1>HOPE CHARITY</h1>
+            <p className='parag'>Online fundraising for the people and charities you love.</p>
             <div className="donor">
                 {getdonor.map((charity) => (
                     <div key={charity.id} className="donori">
@@ -34,14 +40,14 @@ function Donorhomepage({charity}){
                         </div>
                         <div className="ptext">
                             <h2>{charity.name}</h2>
-                            <p> {charity.description}</p>
+                            <p className='pg'> {charity.description}</p>
                             <h5>{charity.posted_at}</h5>
                         </div>
-                        <button onClick={() => handleClick(charity.id)}>Donate</button>
+                        <button className='btn_donar' onClick={() => handleClick(charity.id)}>Donate now!</button>
                     </div>
                 ))}
             </div>
-         <Footer />  
+            <Footer />
         </div>
     );
 }

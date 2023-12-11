@@ -15,6 +15,7 @@ class User(db.Model):
     email = db.Column(db.String, nullable=False)
     image_url = db.Column(db.String, nullable=False)
     user_type = db.Column(db.String, nullable=False)
+    approval_status = db.Column(db.String(50), default='Approved')
     _password_hash = db.Column(db.String)
 
     #relationship
@@ -35,16 +36,36 @@ class User(db.Model):
 class Admin(db.Model):
     __tablename__ = 'admins'
     id = db.Column(db.Integer, primary_key=True)
-    news_title = db.Column(db.String)
-    news_image = db.Column(db.String)
-    news_text = db.Column(db.String)
-    created_at= db.Column(db.DateTime, default=datetime.utcnow)
+    fullname = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    image_url = db.Column(db.String, nullable=False)
+    _password_hash = db.Column(db.String(255), nullable=False)
+
     charity_id = db.Column(db.Integer, db.ForeignKey('charities.id'))
     
 
     #relationship
     charities2 = db.relationship('Charity', back_populates= 'admin')
 
+    @hybrid_property
+    def password_hash(self):
+        raise AttributeError('password hash may not be viewed')
+
+    @password_hash.setter
+    def password_hash(self, password):
+        password_hash = bcrypt.generate_password_hash(password.encode('utf-8'))
+        self._password_hash = password_hash.decode('utf-8')
+
+    def authenticate(self,password):
+        return bcrypt.check_password_hash(self._password_hash,password.encode('utf-8'))
+
+class News(db.Model):
+    __tablename__ = 'news'
+    id = db.Column(db.Integer, primary_key=True)
+    news_title = db.Column(db.String)
+    news_image = db.Column(db.String)
+    news_text = db.Column(db.String)
+    created_at= db.Column(db.DateTime, default=datetime.utcnow)
 
 class Charity(db.Model):
     __tablename__ = 'charities'
