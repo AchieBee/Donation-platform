@@ -65,3 +65,59 @@ h3{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 25px;
 }
+@media (max-width: 768px) {
+    .div2 {
+        margin-top: -10%;
+        
+    }
+
+    .navv {
+        height:100vh;
+    }
+
+    .mission, .vission {
+        width: 100%;
+        margin-top: -120%;
+    }
+    .mission img {
+        margin-bottom: 20px;
+    }
+    .vission img{
+        margin-bottom: 20px;
+    }
+
+    .img {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .drop1, .drop2 {
+        width: 50%;
+        margin-top: -50%;
+        
+    }
+   
+    .leader_logo img {
+        width: 5%;
+        margin: 20px;
+    }
+
+    h3 {
+        padding: 1px;
+        font-size: 17px;
+        margin-top: -50%;
+    }
+    .img img {
+        width: 90%;
+        height: 60%;
+        margin-top: -30%;
+        margin-left: 70px;
+        
+    }
+    .vtext {
+        font-size: 8px;
+    }
+    h2 {
+        font-size: 16px;
+    }
+}

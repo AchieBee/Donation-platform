@@ -48,11 +48,9 @@ function Navbar() {
       <Link to="/vision">Vision</Link>
       <Link to="/news">News</Link>
       <PagesDropdown title="Pages">
+        <Link to="/aboutus">Aboutus</Link>
         <Link to="/vision">Vision</Link>
-        <Link to="/stories">Stories</Link>
-        <Link to="/community">Community</Link>
         <Link to="/gallery">Gallery</Link>
-        <Link to="/page3">Page 5</Link>
       </PagesDropdown>
     </div>
     <div className="btn">

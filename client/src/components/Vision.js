@@ -24,7 +24,7 @@ const Vision = () => {
             <div className='mission'>
                 <img src={drop1} alt="drop1" className="drop1" />
                 <h2>Mission</h2>
-                <p>"In pursuit of our mission, we are committed to empowering positive change through acts of compassion and collaboration.<br/> 
+                <p className ='vtext'>"In pursuit of our mission, we are committed to empowering positive change through acts of compassion and collaboration.<br/> 
                     We strive to create a tangible impact on the lives of those in need, fostering a community where transparency,<br/> 
                     accountability, and unwavering dedication are the cornerstones of our endeavors."</p>
             </div>
