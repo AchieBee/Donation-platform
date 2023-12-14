@@ -1,9 +1,6 @@
 import React from 'react'
 import logo from '../Assets/logo.png';
 import './Footer.css'
-import images3 from '../components/images/Elon Musk.jpeg'
-import images4 from '../components/images/Cuisenaire Rods in the Classroom.jpeg'
-import images5 from '../components/images/6 Ways to Grow Your Facebook Page Audience.jpeg'
 import images6 from '../components/images/15+ Logo Linkedin Png.jpeg'
 import images7 from '../components/images/Email, gmail, mail, logo, social, social media icon - Free download.jpeg'
 import images8 from '../components/images/Whatsapp icons for free download Freepik.jpeg'
@@ -25,17 +22,21 @@ const Footer = () => {
                     <img className='linkedin' src={images6} alt='whatsapp' />
                     <span>+254741041580</span><br/>
                     <span>+254700909000</span><br/>
+                </div>
+                <div className='foonews'>
                     <a href='News'><p>News</p> </a>
                 </div>
                 <div className='about'>
                     <a href='About us'><p>About us</p></a>
                 </div>
                
-                <div className='socialmedia'>
-                    <img src={images3} alt='twitter'/>
-                    <img src= {images4} alt = 'instagram'/>
-                    <img src = {images5} alt = 'facebook'/>
-                    <img src= {images6} alt='linked'/>
+                
+                <div className='adress'>
+                    <h4 className='fooheader11'>Location</h4>
+                    <div>723 Main Street </div>
+                    <div>Nairobi, Kenya</div>
+                    <div>Skyview Towers</div>
+                    <div>5th Floor</div>
                 </div>
                 <div className='fin'>
                 <p>&copy;2023 Hope Charity Organisation</p>

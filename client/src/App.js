@@ -12,6 +12,7 @@ import News from "./components/News";
 import Charitydetails from "./components/Charitydetails"
 import Admin from "./components/Admin";
 import Adminlogin from "./components/Adminlogin"
+import Gallery from "./components/Gallery"
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/adminlogin" element={<Adminlogin />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </>
   );

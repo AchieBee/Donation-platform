@@ -50,13 +50,28 @@ function Charitydetails() {
                     <div className="text2">
                     <h3>{selectedcharity.description}</h3>
                     </div>
+                    <div className="text2">
+                        <h3>{selectedcharity.stories}</h3>
+                    </div>
                 </div>
                 <div className="donate2">
                     <h2>Donate</h2>
-                    <CollapsibleSection title="Paypal" content={selectedcharity.paypal} />
-                    <CollapsibleSection title="Bank" content={selectedcharity.bank} />
-                    <CollapsibleSection title="Mpesa" content={selectedcharity.mpesa} />
-                    <CollapsibleSection title="Skrill" content={selectedcharity.skrill} />
+                    <CollapsibleSection title="Paypal" content={<>
+                        <div className="coldiv">Email: {selectedcharity.paypal_email}</div>
+                        <div className="coldiv">Number: {selectedcharity.paypal_no}</div>
+                    </>} />
+                    <CollapsibleSection title="Bank" content={<>
+                        <div className="coldiv">Account Name: {selectedcharity.Acc_name}</div>
+                        <div className="coldiv">Bank Number: {selectedcharity.bank_no}</div>
+                    </>} />
+                    <CollapsibleSection title="Mpesa" content={<>
+                        <div className="coldiv">Paybill: {selectedcharity.mpesa_paybill}</div>
+                        <div className="coldiv">Account: {selectedcharity.mpesa_Acc}</div>
+                    </>} />
+                    <CollapsibleSection title="Skrill" content={<>
+                        <div className="coldiv">Country: {selectedcharity.skrill_country}</div>
+                        <div className="coldiv">Name: {selectedcharity.skrill_name}</div>
+                    </>} />
                 </div>
                 
             </div>

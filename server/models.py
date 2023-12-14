@@ -77,10 +77,15 @@ class Charity(db.Model):
     image_url= db.Column(db.String)
     posted_at = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    paypal = db.Column(db.String)
-    bank = db.Column(db.String)
-    mpesa = db.Column(db.String)
-    skrill = db.Column(db.String)
+    paypal_email = db.Column(db.String)
+    paypal_no = db.Column(db.String)
+    bank_no= db.Column(db.String)
+    acc_name= db.Column(db.String)
+    mpesa_paybill= db.Column(db.String)
+    mpesa_acc= db.Column(db.String)
+    skrill_country= db.Column(db.String)
+    skrill_name= db.Column(db.String)
+    phone_no= db.Column(db.String)
     
 
     #relationship

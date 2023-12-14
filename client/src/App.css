@@ -1,37 +1,8 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-.nav{
-  z-index: 1000;
-  position: fixed;
+/* Default styles for larger screens */
+.nav {
+  margin-top: -13%;
   width: 100%;
-  height: 20%;
+  height: 120px;
   background-image: url('./Assets/pneon.jpg');
   top: 0;
   left: 0;
@@ -39,38 +10,72 @@
   display: flex;
 }
 
-.logo{
+.logo {
   width: 35%;
   padding: 2%;
 }
 
 .nav-links {
-  margin-top: 23%;
+  margin-top: 20%;
   margin-left: 49%;
+  display: flex;
+  padding: 1%;
 }
+
 .nav-links a {
-  color: white; 
-  margin: 0 15px; 
+  color: white;
+  margin: 0 15px;
   text-decoration: none;
-   
 }
-.nav-links a:hover, button:hover {
+
+.nav-links a:hover,
+button:hover {
   opacity: 0.8;
 }
+
 button {
-  background-color: #4CAF50; 
-  color: white; 
-  padding: 10px 20px; 
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
   border: none;
   cursor: pointer;
 }
-.btn{
- margin-top: -16%;
- margin-left: 165%;
- 
+
+.btn {
+  margin-top: -19%;
+  margin-left: 155%;
 }
-body{
-  
+
+body {
   margin-top: 160px;
-  
+}
+
+/* Mobile-friendly styles */
+@media (max-width: 768px) {
+  .nav {
+      flex-direction: flex;
+      align-items: center;
+      height: auto;
+      width: 100%;
+  }
+
+  .nav-links {
+      margin-top: 8%;
+      margin-left: 130px;
+      display: flex;
+      text-align: center;
+      gap: 10px;
+      justify-content: space-around;
+  }
+
+  .nav-links a {
+      display: flex;
+      margin: 5px 0;
+  }
+
+  .logo {
+      width: 15%;
+      padding: 2%;
+      margin-top: -1%;
+  }
 }

@@ -24,12 +24,14 @@ function Donorhomepage({ charity }) {
     const handleClick = (id) => {
         navigate(`/donorh/${id}`);
     };
-
+    const handleDonateClick = () => {
+        navigate(`/login`);
+    }
     return (
         <div className='img_homepage'>
             <Navbar />
             <img className='pic' src={images30} alt='child' />
-            <button className='btn_pic' onClick={() => handleClick(charity.id)}>Donate</button>
+            <button className='btn_pic' onClick={handleDonateClick}>Donate</button>
             <h1>HOPE CHARITY</h1>
             <p className='parag'>Online fundraising for the people and charities you love.</p>
             <div className="donor">

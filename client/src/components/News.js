@@ -17,7 +17,7 @@ function News(){
         <Navbar />
         <div>
             <div>
-                <h1 className='netitle'>News &Events</h1>
+                <h2 className='netitle'>News &Events</h2>
                 {getnews.map((news) => (
                     <div key={news.id} className="nemain">
                         <div className="nimg">
