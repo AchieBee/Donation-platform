@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import aimage from '../Assets/group.jpg'
 import './Aboutus.css'
+import drop3 from '../Assets/lotus.png';
 
 
 function Aboutus() {
@@ -12,22 +13,43 @@ function Aboutus() {
         <div>
             <Navbar />
             <div className="side">
-               ss
+                <h3 className="abheader1">Our Organization</h3>
+                <p className="sidetext555">Welcome to Hope Charity, where compassion
+                    meets action, and every act of kindness creates a
+                    ripple of positive change. Established on 22 November 2023,
+                    Hope Charity is a beacon of hope committed to making a lasting
+                    impact on the lives of those in need.</p>
+                <img src={drop3} alt="drop3" className="drop3" />
             </div>
             <div className='vimg'>
-                <h2 className="header">Our Organization</h2>
+                
                 <img src={aimage} alt="group" className='vimg' />
             </div>
             <div className="atext">
-                <p className="patext">Welcome to Hope Charity, where compassion 
-                    meets action, and every act of kindness creates a 
-                    ripple of positive change. Established on 22 November 2023, 
-                    Hope Charity is a beacon of hope committed to making a lasting 
-                    impact on the lives of those in need.</p>
-                
+                <h2 className="abheader">Meet the Team</h2>
+                <p className="patext">
+                    <h4>Nicolas Esemere- Founder</h4>
+                    As the founder of Hope Charity,Nicolas is a driving force behind Hope Charity, has dedicated his life to creating positive change. 
+                    With a background in Software engineering, he envisions a world where compassion knows no boundaries. 
+                    Nick's passion for helping others is the cornerstone of Hope Charity's mission.</p>
+                <p className="patext">
+                    <h4> Tobias Omondi - Founder</h4> 
+                    As the founder of Hope Charity,Tobias is a driving force behind Hope Charity, has dedicated his life to creating positive change.
+                    With a background in Software engineering, he envisions a world where compassion knows no boundaries.
+                    Tobias' passion for helping others is the cornerstone of Hope Charity's mission.</p>
             </div>
             <div className="atext2">
-                <p className="patext2"><h2>Our Programs</h2><br/>
+                <h2 className="abheader">Our Dedicated Team</h2>
+                <p className="patext">
+                    Hope Charity is made possible by a team of compassionate individuals who share
+                    a common goal — to make the world a better place. From tech wizards ensuring a
+                    seamless online experience to outreach coordinators building connections with communities,
+                    each team member contributes to the heart and soul of Hope Charity.</p>
+                
+            </div>
+                <div className="atext3">
+                <p className="patext2">
+                    <h2 className="abheader">Our Programs</h2><br/>
 
                     Basic Needs Assistance: We provide essential resources such as food, clean water, shelter, and medical care to those facing immediate challenges.<br />
 

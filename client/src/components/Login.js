@@ -45,6 +45,9 @@ function Login() {
     };
 
     return (
+        <div className='loginmain'>
+            
+        
         <div className='login'>
             <h2>Login</h2>
             <label>
@@ -66,6 +69,7 @@ function Login() {
             <p>
                 Don't have an account? <Link to="/signup">Sign up</Link>
             </p>
+        </div>
         </div>
     );
 };

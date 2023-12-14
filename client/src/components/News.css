@@ -31,4 +31,9 @@ netxt{
 .netitle{
     text-align: center;
     font-family: fantasy;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    background-color: rgb(13, 13, 66);
+    color: aliceblue;
+    width: 98%;
+
 }

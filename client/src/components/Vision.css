@@ -18,18 +18,25 @@
 .navv{
     background-image: url('../Assets/lneon.jpg');
     width: 20%;
-    height: 400px;
-    margin-top: -2.5%;
+    height: 100vh;
     border-radius: 10px;
+    padding: 2%;
+    color: antiquewhite;
+
+}
+.visionheader{
+    margin-left:39% ;
 }
 
 .mission, .vission {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    padding: 50px;
+    padding: 70px;
     height: 200px;
-    width: 39%;
+    width: 360px;
     float: left;
     border-radius: 10px;
+    margin-top: -25%;
+    margin-left: 4%;
 }
 p {
     font-size: 13px;
@@ -37,15 +44,97 @@ p {
     line-height: 1.6;
 }
 
+
 .img {
-    width: 90%;
-    height: 270px;
-    margin-bottom: 20px;
+    width: 85%;
+    height: 55vh;
+    margin-left: 13%;
     border-radius: 10px;
-    
 }
 .drop1 , .drop2{
     width: 20%;
     margin-top: -7%;
 
+}
+.horizontal-line{
+    margin-bottom: -20px;
+    margin: 0%;
+}
+.leader_logo img{
+    width: 5%;
+    padding: 2%;
+    margin: 50px;
+}
+h3{
+    padding: 100px;
+    font-weight: 900;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+}
+.how{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color:rgb(6,7,61);
+    color: rgb(255, 255, 255);
+    padding: 2%;
+    margin-top: 1%;
+    border-radius: 1em;
+}
+.vi{
+    margin-left: 13%;
+}
+@media (max-width: 768px) {
+    .div2 {
+        margin-top: -10%;
+        
+    }
+
+    .navv {
+        height:100vh;
+    }
+
+    .mission, .vission {
+        width: 100%;
+        margin-top: -120%;
+    }
+    .mission img {
+        margin-bottom: 20px;
+    }
+    .vission img{
+        margin-bottom: 20px;
+    }
+
+    .img {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .drop1, .drop2 {
+        width: 50%;
+        margin-top: -50%;
+        
+    }
+   
+    .leader_logo img {
+        width: 5%;
+        margin: 20px;
+    }
+
+    h3 {
+        padding: 1px;
+        font-size: 17px;
+        margin-top: -50%;
+    }
+    .img img {
+        width: 90%;
+        height: 60%;
+        margin-top: -30%;
+        margin-left: 70px;
+        
+    }
+    .vtext {
+        font-size: 8px;
+    }
+    h2 {
+        font-size: 16px;
+    }
 }

@@ -4,7 +4,7 @@
   display: flex;
   background-image: url('../Assets/pneonc.jpg');
   padding: 20px;
-  height: 1%;
+  height:160px;
   }
 .ftext{
   width: 40%;
@@ -59,18 +59,17 @@
   height: 1%;
 }
   
-.socialmedia img {
-  width: 30px;
-  margin-right: 10px;
-}
   
 .footer p {
   text-align: center;
   margin-top: 20px;
 }
 .fin{
- margin-top: 14%;
- margin-left: -40%;
+ margin-top: 10%;
+ margin-left: -47%;
+}
+.adress{
+  margin-left: 13%;
 }
 
 /* Media Query for Mobile Devices */
@@ -90,6 +89,4 @@
 }
 
 
-  
-  
   
