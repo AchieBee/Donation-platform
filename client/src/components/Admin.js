@@ -370,7 +370,7 @@ function Admin() {
                         <div className="admin-requests">
                             {filterRequests().length > 0 && (
                                 <div className="approval-requests">
-                                    <h3>Account Approval Requests</h3>
+                                    <h4>Account Approval Requests</h4>
                                     {filterRequests().map((request) => (
                                         <div key={request.userId} className="approval-request">
                                             <div>{request.image_url}</div>

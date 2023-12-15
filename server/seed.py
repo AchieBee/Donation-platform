@@ -47,6 +47,12 @@ with app.app_context():
 
     charity6 = Charity(name='Charity6', description='Description for Charity6', donation_amount=100,stories='Stories for Charity6', image_url='https://i.pinimg.com/564x/d6/7d/b3/d67db34c7eaa0a96008369c216aa94b3.jpg',  posted_at=datetime.utcnow(),users=user1,paypal_email ='example@gmail.com',paypal_no=' +254706767546',bank_no='01570937281',acc_name='charity',mpesa_paybill='064439 ',mpesa_acc= 'hope5',skrill_country='kenya',skrill_name='johndoe',phone_no='+254789678790')
     db.session.add(charity6)
+
+    charity7 = Charity(name='Charity7', description='Description for Charity7', donation_amount=100,stories='Stories for Charity7', image_url='https://i.pinimg.com/564x/d6/7d/b3/d67db34c7eaa0a96008369c216aa94b3.jpg',  posted_at=datetime.utcnow(),users=user1,paypal_email ='example@gmail.com',paypal_no=' +254706767546',bank_no='01570937281',acc_name='charity',mpesa_paybill='064439 ',mpesa_acc= 'hope5',skrill_country='kenya',skrill_name='johndoe',phone_no='+254789678790')
+    db.session.add(charity7)
+
+    charity8 = Charity(name='Charity8', description='Description for Charity8', donation_amount=100,stories='Stories for Charity8', image_url='https://i.pinimg.com/564x/60/44/10/6044105d2141ba75b0e39f1e76187b66.jpg', posted_at=datetime.utcnow(), users=user1,paypal_email ='example@gmail.com' ,paypal_no=' +254704567546',bank_no='01594630981' ,acc_name='charity',mpesa_paybill='764939' ,mpesa_acc= 'hope4',skrill_country='kenya',skrill_name=' johndoe',phone_no=' +254789689090')
+    db.session.add(charity8)
     # Seed Admin
     admin1 = Admin(fullname='Nic Exe', email='nic44@gmail.com' ,image_url='https://i.pinimg.com/564x/9a/e4/7f/9ae47f01dfed1a7ec357c555aeab916c.jpg',charities2=charity1)
     admin1._password_hash='hashed_password'

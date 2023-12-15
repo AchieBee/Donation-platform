@@ -101,7 +101,7 @@
 .admin-requests{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   padding: 1%;
- background-color:rgb(33,43,54);
+  background-color:rgb(33,43,54);
 }
 .dashboard-item1{
   height: 120%;

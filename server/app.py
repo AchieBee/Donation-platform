@@ -9,9 +9,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from marshmallow import Schema, fields, ValidationError, validates
 from flask_migrate import Migrate
 from datetime import datetime
+from dotenv import load_dotenv
+from cloudinary.uploader import upload
+from cloudinary import CloudinaryImage, config, uploader
 import os
 from flask_bcrypt import Bcrypt
 
+load_dotenv()
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///charity.db'
@@ -25,13 +29,20 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'nesemere55@gmail.com'
 app.config['MAIL_PASSWORD'] = 'ijdmwcmwxmwmunmr'
 app.config['MAIL_DEFAULT_SENDER'] = 'nesemere55@gmail.com'
+CLOUDINARY_CLOUD_NAME='dwvsqbfsm'
+CLOUDINARY_API_KEY='992648586995818'
+CLOUDINARY_API_SECRET='2k96pHdmkZyDT0IKTSfTbIQBKto'
 
 bcrypt = Bcrypt(app)
 mail = Mail(app)
 db.init_app(app)
 api = Api(app)
 CORS(app,supports_credentials=True)
-
+config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET")
+)
 
 class SignUpResource(Resource):
     def post(self):
@@ -72,6 +83,7 @@ class SignUpResource(Resource):
             return {'message': 'Signup successful'}, 200
         elif data['user_type'] == 'Charity':
             return {'message': 'Your request has been received and will be processed by the admins soon.'}, 200
+
 class LoginResource(Resource):
     def post(self):
         data = request.json
@@ -364,6 +376,7 @@ class LogoutResource(Resource):
     def get(self):
         session.pop('admin_id', None)
         return {'message': 'Logout successful'}, 200
+
 
 
 
