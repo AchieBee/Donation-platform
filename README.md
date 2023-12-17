@@ -1,11 +1,11 @@
-Hope Charity Automated Donation Platform
+#Hope Charity Automated Donation Platform
 
 
-Overview
+##Overview
 
 Hope Charity is a web platform built to streamline and automate the donation process, making it easier for users to contribute to charitable causes. The platform is developed using React.js for the frontend and Flask for the backend, ensuring a seamless and responsive user experience.
 
-Features
+##Features
 
 1.User-Friendly Interface: The React.js frontend provides an intuitive and user-friendly interface, allowing users to navigate the platform effortlessly.
 
@@ -17,9 +17,9 @@ Features
 
 5.Real-Time Updates: Users receive real-time updates on the impact of their donations, fostering transparency and trust.
 
-Installation
+##Installation
 
-Prerequisites
+###Prerequisites
 
  1)Node.js
  2)npm (Node Package Manager)
@@ -27,50 +27,50 @@ Prerequisites
  4)Flask
  
  
-Installation
+###Installation
 
 Clone the repository:
 
-bash
+###bash
 
 1) git clone https://github.com/AchieBee/Donation-platform/tree/Development
 2) cd hope-charity
 3) Install frontend dependencies:
 
-bash
+###bash
 
 1) cd frontend
 2) npm install
 3) Install backend dependencies:
 
-bash
+###bash
 
 1) cd ../backend
 2) pip install -r requirements.txt
 3) Start the frontend and backend servers:
 
-bash
+##bash
 
-# In the 'frontend' directory
+###In the 'frontend' directory
 
 npm start
 
-# In the 'backend' directory
+###In the 'backend' directory
 
 
 python app.py
 
 Open your browser and navigate to http://localhost:3000 to access the Hope Charity platform.
 
-Contributing
+##Contributing
 
 We welcome contributions from the community. If you would like to contribute to the development of Hope Charity, please review our contribution guidelines.
 
-License
+##License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Contact
+##Contact
 
 For questions or support, please contact us at hopecharity@gmail.com.
 
