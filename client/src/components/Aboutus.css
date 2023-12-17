@@ -1,0 +1,98 @@
+/* Default styles for larger screens */
+.side {
+    background-color:rgb(1,1,13);
+    width: 30%;
+    height: 100vh;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+}
+.sidetext555{
+    padding: 7%;
+}
+.abheader1{
+    text-align: center;
+    padding: 8%;
+}
+.drop3{
+    width: 80%;
+    margin-left: 8%;
+    margin-top: -5%;
+    
+}
+
+
+.vimg {
+    width: 98%;
+    height: 280px;
+    margin-left: 16%;
+    margin-top: -27%;
+    border-radius: 10px; 
+}
+
+.vimg img {
+    width: 70%;
+}
+
+.atext {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 60%;
+    padding: 2%;
+    border-radius: 10px;
+    height: 110px;
+    margin-left: 31%;
+    margin-top: -21%;
+}
+
+.atext2 {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 60%;
+    padding: 3%;
+    border-radius: 10px;
+    height: 390px;
+    margin-left: 30%;
+    margin-top: 3%;
+}
+.atext3 {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 92%;
+    padding: 3%;
+    border-radius: 10px;
+    height: 300px;
+    margin-top: -23%;
+    background-color:rgb(1,1,13);
+    color: rgb(255, 255, 255);
+}
+.abheader{
+    text-align: center;
+}
+/* Mobile-friendly styles */
+@media (max-width: 768px) {
+    .side {
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+    }
+
+    .vimg {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .atext {
+        width: 60%;
+        margin: 40px;
+        margin-left: 3%;
+    }
+    .atext p {
+        font-size: 10px;
+    }
+    .atext2{
+        width: 60%;
+        margin-left: 2%;
+        margin: 20px;
+    }
+    .atext2 p {
+        font-size: 10px;
+    }
+}

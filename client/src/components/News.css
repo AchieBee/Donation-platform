@@ -1,0 +1,39 @@
+.nemain {
+    width: 95%;
+    height: 20%;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    border-radius: 8px; 
+    background-color: rgb(13, 13, 66);
+}
+
+.ntxt{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    width: 60%;
+    font-size: large;
+    margin-left: 35%;
+    padding: 1%;
+    margin-top:-13%;
+    height: 170px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+.nimg {
+    width: 55%;
+    height: 200px;
+}
+netxt{
+    font-size: xx-large;
+    padding: 1%;
+}
+.netitle{
+    text-align: center;
+    font-family: fantasy;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    background-color: rgb(13, 13, 66);
+    color: aliceblue;
+    width: 98%;
+
+}

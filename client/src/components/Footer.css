@@ -1,0 +1,92 @@
+/* Footer.css */
+
+.footer {
+  display: flex;
+  background-image: url('../Assets/pneonc.jpg');
+  padding: 20px;
+  height:160px;
+  }
+.ftext{
+  width: 40%;
+}
+.about{
+  width: 10%;
+}
+.contact{
+  width: 10%;
+  margin-left: 5%;
+}
+.footer_links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+  
+.footer_links a {
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+.linkedin,
+.mail,
+.whatsapp {
+  width: 20px;
+  margin-right: 15px;
+}
+  
+.btn_donation {
+  margin-top: 20px;
+  text-align: center;
+}
+  
+.btn_donation button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 70%;
+  margin-left: 300%;
+  width: 99%;
+}
+  
+.socialmedia {
+  display: flex;
+  justify-content: center;
+  margin-top: 140px;
+  width: 30px;
+  height: 1%;
+}
+  
+  
+.footer p {
+  text-align: center;
+  margin-top: 20px;
+}
+.fin{
+ margin-top: 10%;
+ margin-left: -47%;
+}
+.adress{
+  margin-left: 13%;
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 600px) {
+  .footer_img img {
+    width: 100%; 
+  }
+
+  .footer_links {
+    text-align: center;
+  }
+
+  .socialmedia {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+  

@@ -1,0 +1,26 @@
+.login{
+width: 20%;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+border-radius: 5%;
+padding: 2%;
+display: grid;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.signup{
+
+width: 20%;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+border-radius: 5%;
+padding: 2%;
+display: grid;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+body.Login.Signup{
+ background-image:url('../Assets/back1.jpg') ;
+}
