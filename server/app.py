@@ -18,7 +18,9 @@ from flask_bcrypt import Bcrypt
 load_dotenv()
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://charity:4890@localhost/charity'
+import os
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://charity:4890@localhost/charity')
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key='qwwerrtyyu123'
@@ -400,5 +402,4 @@ api.add_resource(LogoutResource, '/logout')
 
 
 if __name__ == '__main__':
-    
-    app.run(port=5555, debug=True)
+    app.run(port=int(os.environ.get('PORT', 5555)), debug=True)
