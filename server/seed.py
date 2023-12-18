@@ -77,11 +77,11 @@ with app.app_context():
     db.session.add(beneficiary3)
 
     #Seed Inventory
-    inventory1 = Inventory(item_name='hope1', amount='$20')
+    inventory1 = Inventory(item_name='hope1', amount='20')
     db.session.add(inventory1)
-    inventory2 = Inventory(item_name='hope2', amount='$65')
+    inventory2 = Inventory(item_name='hope2', amount='65')
     db.session.add(inventory2)
-    inventory3 = Inventory(item_name='hope3', amount='$40')
+    inventory3 = Inventory(item_name='hope3', amount='40')
     db.session.add(inventory3)
     #Seed News
     news1=News(news_title='World Charity Day',news_image='https://i.pinimg.com/564x/51/57/9a/51579ab90620cb36fb8592b19cd4280f.jpg', news_text='On 4 December 2023 ,there will be a world charity day which will take place at our headquarters on Ngongroad 1st lane. We  have games for children and adults that will make and gear the day towards a fruitful charity event.' ,created_at=datetime.utcnow())
