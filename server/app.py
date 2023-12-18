@@ -18,7 +18,7 @@ from flask_bcrypt import Bcrypt
 load_dotenv()
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///charity.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://charity:4890@localhost/charity'
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key='qwwerrtyyu123'
